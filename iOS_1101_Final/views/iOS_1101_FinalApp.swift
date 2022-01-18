@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
+ 
 @main
 struct iOS_1101_FinalApp: App {
+    let persistenceController = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext,
+                persistenceController.container.viewContext)
         }
     }
 }
